@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Employee Form:</h3>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+
+    {% for x in prices %}
+        <h1>The price is {{x|add:"23"}}dollars.</h1>
+    {% endfor %}
+
+    {% comment %}
+        <h1>{{ name|addslashes }}</h1>
+        <button onclick="alert('{{name|addslashes}}')">Click</button>
+    
+
+    
+        <h1>{{ animal|capfirst }}</h1>
+    
+
+    
+        <h1>{{ animal|center:20 }}</h1>
+    
+
+    <h1>{{ name|cut:"er"}}</h1>
+    {% endcomment %}
+
+    {% filter upper %}
+        <p>Have a great day</p>
+    {% endfilter %}
+    
+    {% for x in colors %}
+        <h1>{{ x|default:"nocolor" }}</h1>
+
+    {% endfor %}
+
+    {% for x in cars|dictsortreversed:"year" %}
+        <p>{{x.year}} {{x.brand}} {{x.model}}</p>
+    {% endfor %}
+
+    {% comment %}
+        {{ form.as_p }}
+        <input type="submit">
+    
+        escapejs
+        <h3>Without escapejs:</h3>
+        <button onclick="alert('{{var1}}')">Click</button>
+
+        <h3>With escapejs:</h3>
+        <button onclick="alert('{{var1|escapejs}}')">click</button>
+
+        <h1>{{ size|filesizeformat }}</h1>
+    
+         first and last
+        <h1>{{ fruits|first }}</h1>
+        <h1>{{fruits|last}}</h1>
+    
+         floatformat
+        <p>{{5.575756|floatformat:3}}</p>
+        <p>{{4.2|floatformat:3}}</p>
+        <p>{{3|floatformat:3}}</p>
+    
+
+        <h1>{{ mynumber|floatformat:"3g" }}</h1>
+
+        <h1>{% now "y-m-d" %}</h1>
+    
+
+    {% include "parent_temp.html" %}
+    <p>This is my website</p>
+    {% endcomment %}
+
+    {% include "parent_temp.html" with me="sudheer" sponsor="w3schools" %}
+
+    
+</form>
+</body>
+</html>

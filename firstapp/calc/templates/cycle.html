@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <ul>
+        {% for x in fruits %}
+            <li style='color:{% cycle 'red' 'blue' %}'>
+                {{x}}
+            </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>
